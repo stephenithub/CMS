@@ -1,0 +1,43 @@
+# Project: Project02
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o Info.o Operator.o Menu.o Input.o FileHelp.o
+LINKOBJ  = main.o Info.o Operator.o Menu.o Input.o FileHelp.o
+LIBS     = -L"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/lib" -L"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/include" -I"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/include" -I"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/DevelopFiles/DevelopmentTools/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = C++通讯录管理系统.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Info.o: Info.cpp
+	$(CPP) -c Info.cpp -o Info.o $(CXXFLAGS)
+
+Operator.o: Operator.cpp
+	$(CPP) -c Operator.cpp -o Operator.o $(CXXFLAGS)
+
+Menu.o: Menu.cpp
+	$(CPP) -c Menu.cpp -o Menu.o $(CXXFLAGS)
+
+Input.o: Input.cpp
+	$(CPP) -c Input.cpp -o Input.o $(CXXFLAGS)
+
+FileHelp.o: FileHelp.cpp
+	$(CPP) -c FileHelp.cpp -o FileHelp.o $(CXXFLAGS)
